@@ -19,7 +19,6 @@ function Header() {
 				<Link to="/">Platforma Rezervari</Link>
 			</div>
 			<ul>
-				{/* de schimbat linkurile */}
 				{user ? (
 					<li>
 						<button className="btn" onClick={onLogout}>
