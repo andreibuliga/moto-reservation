@@ -38,7 +38,7 @@ function NewTicket() {
 								Can-Am OUTLANDER MAX 650 XU PLUS T
 							</option>
 							<option value="bicicleta">
-								Descoperă orașul cu Neuzer e-City Zagon
+								Bicicleta Electrica Neuzer e-city Zagon
 							</option>
 						</select>
 					</div>
