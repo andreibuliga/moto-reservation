@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken')
 const User = require('../models/userModel')
 
 const registerUser = asyncHandler(async (req, res) => {
-  const { name, email, password } = req.body
+  const { name, email, password, isAdmin, isDeveloper } = req.body
 
   if (!name || !email || !password) {
     res.status(400)
@@ -26,6 +26,8 @@ const registerUser = asyncHandler(async (req, res) => {
     name,
     email,
     password: hashedPassword,
+    isAdmin,
+    isDeveloper,
   })
 
   if (user) {
@@ -33,6 +35,8 @@ const registerUser = asyncHandler(async (req, res) => {
       _id: user._id,
       name: user.name,
       email: user.email,
+      isAdmin: user.isAdmin,
+      isDeveloper: user.isDeveloper,
       token: generateToken(user._id),
     })
   } else {
@@ -51,6 +55,8 @@ const loginUser = asyncHandler(async (req, res) => {
       _id: user._id,
       name: user.name,
       email: user.email,
+      isAdmin: user.isAdmin,
+      isDeveloper: user.isDeveloper,
       token: generateToken(user._id),
     })
   } else {

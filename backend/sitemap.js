@@ -15,7 +15,7 @@ const generateSitemap = () => {
           .map(
             ({ url, changefreq, priority }) => `
             <url>
-                <loc>http://localhost:5400${url}</loc>
+                <loc>http://localhost:3000${url}</loc>
                 <changefreq>${changefreq}</changefreq>
                 <priority>${priority}</priority>
             </url>

@@ -6,6 +6,8 @@ const user = JSON.parse(localStorage.getItem('user'))
 
 const initialState = {
   user: user ? user : null,
+  isAdmin: user ? user.isAdmin : false,
+  isDeveloper: user ? user.isDeveloper : false,
   isLoading: false,
 }
 
@@ -39,6 +41,8 @@ export const authSlice = createSlice({
   reducers: {
     logout: (state) => {
       state.user = null
+      state.isAdmin = false
+      state.isDeveloper = false
     },
   },
   extraReducers: (builder) => {
@@ -48,6 +52,8 @@ export const authSlice = createSlice({
       })
       .addCase(register.fulfilled, (state, action) => {
         state.user = action.payload
+        state.isAdmin = action.payload.isAdmin
+        state.isDeveloper = action.payload.isDeveloper
         state.isLoading = false
       })
       .addCase(register.rejected, (state) => {
@@ -58,6 +64,8 @@ export const authSlice = createSlice({
       })
       .addCase(login.fulfilled, (state, action) => {
         state.user = action.payload
+        state.isAdmin = action.payload.isAdmin
+        state.isDeveloper = action.payload.isDeveloper
         state.isLoading = false
       })
       .addCase(login.rejected, (state) => {

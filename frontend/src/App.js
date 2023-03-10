@@ -3,10 +3,12 @@ import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import Header from './components/Header'
 import PrivateRoute from './components/PrivateRoute'
+import AdminRoute from './components/AdminRoute'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import NewTicket from './pages/NewTicket'
+import History from './pages/History'
 
 function App() {
   return (
@@ -24,6 +26,14 @@ function App() {
                 <PrivateRoute>
                   <NewTicket />
                 </PrivateRoute>
+              }
+            />
+            <Route
+              path='/history'
+              element={
+                <AdminRoute>
+                  <History />
+                </AdminRoute>
               }
             />
           </Routes>
